@@ -1,4 +1,10 @@
-import { Group, PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import {
+  DirectionalLight,
+  Group,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+} from "three";
 
 const scene = new Scene();
 
@@ -20,5 +26,15 @@ const camera = new PerspectiveCamera(
 );
 camera.position.set(100, 100, 100);
 camera.lookAt(0, 0, 0);
+
+// light
+const directionLight = new DirectionalLight();
+directionLight.position.set(2, 5, -2);
+directionLight.shadow.camera.near = 0;
+directionLight.shadow.camera.far = 100;
+directionLight.shadow.camera.left = -15;
+directionLight.shadow.camera.right = 15;
+directionLight.shadow.camera.top = 15;
+directionLight.shadow.camera.bottom = -15;
 
 const rootGroup = new Group();
